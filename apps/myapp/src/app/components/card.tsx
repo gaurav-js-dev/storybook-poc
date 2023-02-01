@@ -1,3 +1,5 @@
+import styles from './card.module.scss';
+
 type CardProps = {
   title: string;
   description: string;
@@ -5,7 +7,7 @@ type CardProps = {
 
 export const Card = ({ title, description }: CardProps) => {
   return (
-    <div>
+    <div className={styles.card}>
       <h2>{title}</h2>
       <p>{description}</p>
     </div>
