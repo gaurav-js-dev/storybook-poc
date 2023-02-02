@@ -1,13 +1,28 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Card } from './card';
+import { Card } from '../components/card';
 
-const Story: ComponentMeta<typeof Card> = {
+import type { StoryObj } from '@storybook/react';
+// More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
+const meta = {
+  title: 'Example/Card',
   component: Card,
-  title: 'Card',
+  tags: ['docsPage'],
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+    },
+    description: {
+      control: { type: 'text' },
+    },
+  },
 };
-export default Story;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
-Primary.args = {};
+// More on writing stories with args:https://storybook.js.org/docs/7.0/react/writing-stories/args
+export const Primary: Story = {
+  args: {
+    title: 'Card Title',
+    description: 'This is a card',
+  },
+};
